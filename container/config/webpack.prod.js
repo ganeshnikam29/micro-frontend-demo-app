@@ -2,8 +2,6 @@ const commonConfig = require('./webpack.common')
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
-const domain = process.env.PRODUCTION_DOMAIN;
-
 const prodConfig = {
     mode: 'production',
     output: {
@@ -13,8 +11,8 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name:'container',
             remotes: {
-                ReactMFERemoteApp: `reactMFE@${domain}/reactapp/remoteEntry.js`,
-                RemoteVueApp: `vueRemote@${domain}/vueapp/remoteEntry.js`
+                ReactMFERemoteApp: `reactMFE@${process.env.PRODUCTION_DOMAIN}/reactapp/remoteEntry.js`,
+                RemoteVueApp: `vueRemote@${process.env.PRODUCTION_DOMAIN}/vueapp/remoteEntry.js`
             },
             shared: ['react', 'react-dom']
         }),
