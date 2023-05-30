@@ -12,8 +12,8 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name:'container',
             remotes: {
-                ReactMFERemoteApp: `reactMFE@${process.env.PRODUCTION_DOMAIN}/reactapp/remoteEntry.js`,
-                RemoteVueApp: `vueRemote@${process.env.PRODUCTION_DOMAIN}/vueapp/remoteEntry.js`
+                ReactMFERemoteApp: `reactMFE@${process.env.PRODUCTION_DOMAIN}/reactapp/latest/remoteEntry.js`,
+                RemoteVueApp: `vueRemote@${process.env.PRODUCTION_DOMAIN}/vueapp/latest/remoteEntry.js`
             },
             shared: ['react', 'react-dom']
         }),
